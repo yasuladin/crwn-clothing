@@ -48,6 +48,7 @@ const SingUpForm = () => {
         email,
         password
       );
+
       await createUserDocumentFromAuth(user, { displayName });
 
       resetFormFields();
