@@ -4,6 +4,7 @@ import { Outlet, Link } from 'react-router-dom';
 import CrwnLogo from '../../assets/crown.svg?react';
 import { UserContext } from '../../contexts/user.context';
 import { CartContext } from '../../contexts/cart.context';
+import { CategoriesContext } from '../../contexts/categories.context';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
 import './navigation.styles.scss';
@@ -13,6 +14,11 @@ import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
+  const { selectCategory } = useContext(CategoriesContext);
+
+  const resetCategory = () => {
+    selectCategory('');
+  };
 
   return (
     <>
@@ -21,7 +27,7 @@ const Navigation = () => {
           <CrwnLogo className="logo" />
         </Link>
         <div className="nav-links-container">
-          <Link className="nav-link" to={'/shop'}>
+          <Link className="nav-link" to={'/shop'} onClick={resetCategory}>
             SHOP
           </Link>
           {currentUser ? (

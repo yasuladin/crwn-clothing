@@ -2,9 +2,6 @@ import { useContext } from 'react';
 
 import { CartContext } from '../../contexts/cart.context';
 import './checkout-item.styles.scss';
-// import CaretLeft from '../../assets/caret-left-fill.svg?react';
-// import CaretRight from '../../assets/caret-right-fill.svg?react';
-// import Cross from '../../assets/cross_hoso.svg?react';
 
 const CheckoutItem = ({ cartItem }) => {
   const { imageUrl, name, quantity, price } = cartItem;
